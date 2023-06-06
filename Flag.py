@@ -27,4 +27,17 @@ def hexToBytes():
     print(bytesCode)
 
 
-hexToBytes()
+import base64
+
+
+def BytesToBase64():
+    hexCode = "72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
+
+    bytesCode = bytes.fromhex(hexCode)
+    print("Bytes:", bytesCode)
+
+    baseSixFour = base64.b64encode(bytesCode)
+    print("Base 64:", baseSixFour)
+
+
+BytesToBase64()
