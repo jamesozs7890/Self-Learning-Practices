@@ -1,3 +1,7 @@
+from Cryptodome.Util.number import *
+import base64
+
+
 def flag1():
     ords = [81, 64, 75, 66, 70, 93, 73, 72, 1, 92, 109, 2, 84, 109, 66, 75, 70, 90, 2, 92, 79]
 
@@ -27,9 +31,6 @@ def hexToBytes():
     print(bytesCode)
 
 
-import base64
-
-
 def BytesToBase64():
     hexCode = "72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
 
@@ -40,4 +41,10 @@ def BytesToBase64():
     print("Base 64:", baseSixFour)
 
 
-BytesToBase64()
+def intToBytes():
+    # base10 int
+    intNum = int(11515195063862318899931685488813747395775516287289682636499965282714637259206269)
+
+    byteCode = long_to_bytes(intNum)
+
+    print(byteCode)
