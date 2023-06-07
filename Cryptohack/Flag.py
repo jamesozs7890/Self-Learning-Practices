@@ -1,5 +1,6 @@
 from Cryptodome.Util.number import *
 import base64
+from pwn import *
 
 
 def flag1():
@@ -48,3 +49,29 @@ def intToBytes():
     byteCode = long_to_bytes(intNum)
 
     print(byteCode)
+
+
+def FuncXOR():
+    label = "label"
+
+    for i in label:
+
+        newLabel = ord(i)
+        message = xor(newLabel, 13)
+
+        print(message)
+
+
+def finalDecryption():
+    """
+    KEY1 = a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313
+    KEY2 ^ KEY1 = 37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e
+    KEY2 ^ KEY3 = c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1
+    FLAG ^ KEY1 ^ KEY3 ^ KEY2 = 04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf
+    :return:
+    """
+
+    key1 = "a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"
+
+
+finalDecryption()
