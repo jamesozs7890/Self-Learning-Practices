@@ -55,7 +55,6 @@ def FuncXOR():
     label = "label"
 
     for i in label:
-
         newLabel = ord(i)
         message = xor(newLabel, 13)
 
@@ -63,15 +62,27 @@ def FuncXOR():
 
 
 def finalDecryption():
-    """
-    KEY1 = a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313
-    KEY2 ^ KEY1 = 37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e
-    KEY2 ^ KEY3 = c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1
-    FLAG ^ KEY1 ^ KEY3 ^ KEY2 = 04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf
-    :return:
-    """
+    k1 = "a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"  # Identity
+    k1Bytes = bytes.fromhex(k1)
+    
+    t1 = xor(k1Bytes, k1Bytes)
+    print("K1 in Bytes:", k1Bytes)
+    print("K1 XOR K1 =", t1, "\n")
 
-    key1 = "a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"
+    # k2^k1 = "37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e" / Commutative
+    k2XORk1 = "37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e"
+    k2XORk1Bytes = bytes.fromhex(k2XORk1)
+
+    print("K2^K1 in Bytes:", k2XORk1Bytes, "\n")
+
+    # k2^k3 = "c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1" / Commutative
+    k2XORk3 = "c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1"
+    k2XORk3Bytes = bytes.fromhex(k2XORk3)
+
+    print("K2^K3 in Bytes:", k2XORk3Bytes, "\n")
+
+    # flag^k1^k3^k2 = "c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1"
+    print("Flag:")
 
 
 finalDecryption()
